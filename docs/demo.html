@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电池售后管理系统 - 在线演示</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .feature-demo {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            background: #f8f9fa;
+        }
+        .demo-image {
+            max-width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .alert-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-battery-three-quarters me-2"></i>
+                电池售后管理系统 - 在线演示
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="https://github.com/Chenxiaohui126/battery-management-system" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="demo-container">
+        <div class="alert alert-info text-center">
+            <h4><i class="fas fa-info-circle me-2"></i>在线演示说明</h4>
+            <p class="mb-0">这是电池售后管理系统的功能演示页面。完整功能需要下载桌面版本使用。</p>
+        </div>
+
+        <div class="feature-demo">
+            <h3><i class="fas fa-database me-2"></i>电池信息管理</h3>
+            <p>完整的电池基本信息录入、维修记录管理和状态跟踪功能。</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>主要功能：</h5>
+                    <ul>
+                        <li>电池ID、BMS编号、型号管理</li>
+                        <li>循环次数、返厂时间记录</li>
+                        <li>维修项目、费用、措施跟踪</li>
+                        <li>维修前后图片管理</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <img src="https://via.placeholder.com/400x250/667eea/ffffff?text=电池信息管理界面" 
+                         alt="电池信息管理" class="demo-image">
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-demo">
+            <h3><i class="fas fa-images me-2"></i>图片管理系统</h3>
+            <p>支持维修前后图片上传、预览和全屏查看功能。</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="https://via.placeholder.com/400x250/28a745/ffffff?text=图片管理界面" 
+                         alt="图片管理" class="demo-image">
+                </div>
+                <div class="col-md-6">
+                    <h5>图片功能：</h5>
+                    <ul>
+                        <li>拖拽上传图片</li>
+                        <li>图片预览和管理</li>
+                        <li>全屏查看模式</li>
+                        <li>图片缩放和拖拽</li>
+                        <li>键盘快捷键支持</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-demo">
+            <h3><i class="fas fa-users me-2"></i>多平台协作</h3>
+            <p>支持多台电脑同时访问和操作，实现团队协作。</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>协作特性：</h5>
+                    <ul>
+                        <li>局域网多电脑访问</li>
+                        <li>实时数据同步</li>
+                        <li>并发操作支持</li>
+                        <li>数据一致性保证</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <img src="https://via.placeholder.com/400x250/dc3545/ffffff?text=多平台协作" 
+                         alt="多平台协作" class="demo-image">
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-demo">
+            <h3><i class="fas fa-chart-bar me-2"></i>数据统计分析</h3>
+            <p>提供详细的维修统计报表、费用分析和数据导出功能。</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="https://via.placeholder.com/400x250/ffc107/ffffff?text=数据统计界面" 
+                         alt="数据统计" class="demo-image">
+                </div>
+                <div class="col-md-6">
+                    <h5>统计功能：</h5>
+                    <ul>
+                        <li>维修记录统计</li>
+                        <li>费用分析报表</li>
+                        <li>数据导出功能</li>
+                        <li>图表可视化</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-demo">
+            <h3><i class="fas fa-cogs me-2"></i>系统设置管理</h3>
+            <p>灵活的配置管理，支持动态添加电池型号、维修项目等。</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>设置功能：</h5>
+                    <ul>
+                        <li>电池型号管理</li>
+                        <li>维修项目配置</li>
+                        <li>返厂原因设置</li>
+                        <li>责任归属管理</li>
+                        <li>快递公司信息</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <img src="https://via.placeholder.com/400x250/6f42c1/ffffff?text=系统设置界面" 
+                         alt="系统设置" class="demo-image">
+                </div>
+            </div>
+        </div>
+
+        <div class="alert alert-warning">
+            <h4><i class="fas fa-download me-2"></i>下载完整版本</h4>
+            <p>要体验完整功能，请下载桌面版本：</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="https://github.com/Chenxiaohui126/battery-management-system/releases" 
+                       class="btn btn-primary btn-lg w-100" target="_blank">
+                        <i class="fas fa-box me-2"></i>便携版下载
+                    </a>
+                    <small class="text-muted d-block mt-2">无需安装任何依赖，解压即用</small>
+                </div>
+                <div class="col-md-6">
+                    <a href="https://github.com/Chenxiaohui126/battery-management-system" 
+                       class="btn btn-success btn-lg w-100" target="_blank">
+                        <i class="fab fa-github me-2"></i>源码下载
+                    </a>
+                    <small class="text-muted d-block mt-2">需要Node.js环境，功能完整</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-demo">
+            <h3><i class="fas fa-rocket me-2"></i>快速开始</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="text-center">
+                        <i class="fas fa-download fa-3x text-primary mb-3"></i>
+                        <h5>1. 下载</h5>
+                        <p>下载便携版或源码版本</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center">
+                        <i class="fas fa-play fa-3x text-success mb-3"></i>
+                        <h5>2. 运行</h5>
+                        <p>双击exe文件或运行启动器</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center">
+                        <i class="fas fa-globe fa-3x text-info mb-3"></i>
+                        <h5>3. 访问</h5>
+                        <p>浏览器自动打开管理界面</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <p>&copy; 2024 电池售后管理系统. 开源项目，MIT许可证.</p>
+            <p>
+                <a href="https://github.com/Chenxiaohui126/battery-management-system" class="text-light">
+                    <i class="fab fa-github"></i> GitHub仓库
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
