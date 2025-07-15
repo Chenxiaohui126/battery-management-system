@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>修复数据</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #0d6efd;
+            margin-top: 0;
+        }
+        button {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0b5ed7;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border-left: 4px solid #0d6efd;
+            background-color: #e9f2ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>电池售后管理系统 - 数据修复工具</h1>
+        <p>此页面用于修复维修记录数据。点击下面的按钮将重置示例数据到您的浏览器存储中。</p>
+        
+        <button id="fixButton">重置数据</button>
+        
+        <div id="result" class="result" style="display: none;"></div>
+    </div>
+
+    <script>
+        document.getElementById('fixButton').addEventListener('click', function() {
+            // 示例数据
+            const sampleRecords = [
+                {
+                    id: 1,
+                    batteryBtCode: 'BT106005115RZPY241130437',
+                    batteryModel: 'K174',
+                    bmsNumber: '785072658663.0',
+                    returnReason: '高低温报警',
+                    returnDate: '2025-05-11',
+                    repairStatus: '已维修',
+                    repairItem: 'BMS维修',
+                    repairCost: 130.0,
+                    responsibility: '日升质'
+                },
+                {
+                    id: 2,
+                    batteryBtCode: 'BT106005116RZPY24113042',
+                    batteryModel: 'K175',
+                    bmsNumber: '785072658664.0',
+                    returnReason: '漏胶',
+                    returnDate: '2025-05-10',
+                    repairStatus: '维修中',
+                    repairItem: '电芯更换',
+                    repairCost: 220.0,
+                    responsibility: '菲尼基'
+                },
+                {
+                    id: 3,
+                    batteryBtCode: 'BT106005117RZPY24113045',
+                    batteryModel: 'K174',
+                    bmsNumber: '785072658665.0',
+                    returnReason: '外壳破损',
+                    returnDate: '2025-05-09',
+                    repairStatus: '无法维修',
+                    repairItem: '外壳维修',
+                    repairCost: 0.0,
+                    responsibility: '用户'
+                },
+                {
+                    id: 4,
+                    batteryBtCode: 'BT106005118RZPY24113048',
+                    batteryModel: 'K176',
+                    bmsNumber: '785072658666.0',
+                    returnReason: '上壳镭雕错误',
+                    returnDate: '2025-05-08',
+                    repairStatus: '待维修',
+                    repairItem: '未确定',
+                    repairCost: 0.0,
+                    responsibility: '立方'
+                }
+            ];
+
+            // 重置localStorage中的记录
+            localStorage.setItem('batteryRecords', JSON.stringify(sampleRecords));
+            
+            // 显示结果
+            const resultDiv = document.getElementById('result');
+            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = '数据已重置！现在您可以返回<a href="records.html">维修记录页面</a>查看重置后的数据。';
+        });
+    </script>
+</body>
+</html>

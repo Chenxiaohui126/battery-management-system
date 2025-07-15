@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>系统设置 - 电池售后管理系统</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">电池售后管理系统</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">主页</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="records.html">维修记录</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="statistics.html">统计报表</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="settings.html">系统设置</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="main-content mt-4">
+            <div class="card">
+                <div class="card-header bg-light">
+                    <h5>系统设置</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="nav nav-tabs" id="settingsTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="battery-models-tab" data-bs-toggle="tab" data-bs-target="#battery-models" type="button" role="tab" aria-controls="battery-models" aria-selected="true">电池型号管理</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="repair-items-tab" data-bs-toggle="tab" data-bs-target="#repair-items" type="button" role="tab" aria-controls="repair-items" aria-selected="false">维修项目管理</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="return-reasons-tab" data-bs-toggle="tab" data-bs-target="#return-reasons" type="button" role="tab" aria-controls="return-reasons" aria-selected="false">返厂原因管理</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="responsibility-tab" data-bs-toggle="tab" data-bs-target="#responsibility" type="button" role="tab" aria-controls="responsibility" aria-selected="false">责任归属管理</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="express-tab" data-bs-toggle="tab" data-bs-target="#express" type="button" role="tab" aria-controls="express" aria-selected="false">快递公司管理</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="data-backup-tab" data-bs-toggle="tab" data-bs-target="#data-backup" type="button" role="tab" aria-controls="data-backup" aria-selected="false">数据备份还原</button>
+                        </li>
+                    </ul>
+                    
+                    <div class="tab-content p-3 border border-top-0 rounded-bottom" id="settingsTabsContent">
+                        <!-- 电池型号管理 -->
+                        <div class="tab-pane fade show active" id="battery-models" role="tabpanel" aria-labelledby="battery-models-tab">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="mb-0">电池型号列表</h5>
+                                <button class="btn btn-success btn-sm" id="addBatteryModelBtn">
+                                    <i class="bi bi-plus-circle"></i> 添加型号
+                                </button>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">型号代码</th>
+                                            <th scope="col">型号名称</th>
+                                            <th scope="col">描述</th>
+                                            <th scope="col">创建时间</th>
+                                            <th scope="col">操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="batteryModelsTable">
+                                        <tr>
+                                            <td>1</td>
+                                            <td>K174</td>
+                                            <td>K174标准电池</td>
+                                            <td>标准容量电池，适用于XX型号车型</td>
+                                            <td>2023-06-01</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary edit-model-btn">编辑</button>
+                                                <button class="btn btn-sm btn-outline-danger delete-model-btn">删除</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>K175</td>
+                                            <td>K175增强版电池</td>
+                                            <td>大容量电池，适用于XX型号车型</td>
+                                            <td>2023-07-15</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary edit-model-btn">编辑</button>
+                                                <button class="btn btn-sm btn-outline-danger delete-model-btn">删除</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>K176</td>
+                                            <td>K176高性能电池</td>
+                                            <td>高性能电池，适用于XX型号车型</td>
+                                            <td>2023-09-10</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary edit-model-btn">编辑</button>
+                                                <button class="btn btn-sm btn-outline-danger delete-model-btn">删除</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- 维修项目管理 -->
+                        <div class="tab-pane fade" id="repair-items" role="tabpanel" aria-labelledby="repair-items-tab">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="mb-0">维修项目列表</h5>
+                                <button class="btn btn-success btn-sm" id="addRepairItemBtn">
+                                    <i class="bi bi-plus-circle"></i> 添加项目
+                                </button>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">项目代码</th>
+                                            <th scope="col">项目名称</th>
+                                            <th scope="col">描述</th>
+                                            <th scope="col">创建时间</th>
+                                            <th scope="col">操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="repairItemsTable">
+                                        <!-- 数据将通过JavaScript动态加载 -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- 返厂原因管理 -->
+                        <div class="tab-pane fade" id="return-reasons" role="tabpanel" aria-labelledby="return-reasons-tab">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="mb-0">返厂原因列表</h5>
+                                <button class="btn btn-success btn-sm" id="addReturnReasonBtn">
+                                    <i class="bi bi-plus-circle"></i> 添加原因
+                                </button>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">原因代码</th>
+                                            <th scope="col">原因名称</th>
+                                            <th scope="col">描述</th>
+                                            <th scope="col">创建时间</th>
+                                            <th scope="col">操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="returnReasonsTable">
+                                        <tr>
+                                            <td>1</td>
+                                            <td>R001</td>
+                                            <td>高低温报警</td>
+                                            <td>电池温度超过正常范围报警</td>
+                                            <td>2023-06-01</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary edit-reason-btn">编辑</button>
+                                                <button class="btn btn-sm btn-outline-danger delete-reason-btn">删除</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>R002</td>
+                                            <td>漏胶</td>
+                                            <td>电池外壳漏胶问题</td>
+                                            <td>2023-07-15</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary edit-reason-btn">编辑</button>
+                                                <button class="btn btn-sm btn-outline-danger delete-reason-btn">删除</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>R003</td>
+                                            <td>上壳镭雕错误</td>
+                                            <td>电池上壳体镭雕信息错误</td>
+                                            <td>2023-09-10</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary edit-reason-btn">编辑</button>
+                                                <button class="btn btn-sm btn-outline-danger delete-reason-btn">删除</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- 责任归属管理 -->
+                        <div class="tab-pane fade" id="responsibility" role="tabpanel" aria-labelledby="responsibility-tab">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="mb-0">责任归属列表</h5>
+                                <button class="btn btn-success btn-sm" id="addResponsibilityBtn">
+                                    <i class="bi bi-plus-circle"></i> 添加责任方
+                                </button>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">责任方代码</th>
+                                            <th scope="col">责任方名称</th>
+                                            <th scope="col">描述</th>
+                                            <th scope="col">创建时间</th>
+                                            <th scope="col">操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="responsibilityTable">
+                                        <tr>
+                                            <td>1</td>
+                                            <td>RS01</td>
+                                            <td>日升质</td>
+                                            <td>日升质生产问题</td>
+                                            <td>2023-06-01</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary edit-responsibility-btn">编辑</button>
+                                                <button class="btn btn-sm btn-outline-danger delete-responsibility-btn">删除</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>RS02</td>
+                                            <td>菲尼基</td>
+                                            <td>菲尼基生产问题</td>
+                                            <td>2023-07-15</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary edit-responsibility-btn">编辑</button>
+                                                <button class="btn btn-sm btn-outline-danger delete-responsibility-btn">删除</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>RS03</td>
+                                            <td>用户</td>
+                                            <td>用户使用不当</td>
+                                            <td>2023-09-10</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary edit-responsibility-btn">编辑</button>
+                                                <button class="btn btn-sm btn-outline-danger delete-responsibility-btn">删除</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>RS04</td>
+                                            <td>立方</td>
+                                            <td>立方责任问题</td>
+                                            <td>2023-10-05</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary edit-responsibility-btn">编辑</button>
+                                                <button class="btn btn-sm btn-outline-danger delete-responsibility-btn">删除</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- 快递公司管理 -->
+                        <div class="tab-pane fade" id="express" role="tabpanel" aria-labelledby="express-tab">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="mb-0">快递公司列表</h5>
+                                <button class="btn btn-success btn-sm" id="addExpressBtn">
+                                    <i class="bi bi-plus-circle"></i> 添加快递公司
+                                </button>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">公司代码</th>
+                                            <th scope="col">公司名称</th>
+                                            <th scope="col">联系电话</th>
+                                            <th scope="col">创建时间</th>
+                                            <th scope="col">操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="expressTable">
+                                        <tr>
+                                            <td>1</td>
+                                            <td>EX01</td>
+                                            <td>跨越</td>
+                                            <td>95338</td>
+                                            <td>2023-06-01</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary edit-express-btn">编辑</button>
+                                                <button class="btn btn-sm btn-outline-danger delete-express-btn">删除</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>EX02</td>
+                                            <td>顺丰</td>
+                                            <td>95338</td>
+                                            <td>2023-07-15</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary edit-express-btn">编辑</button>
+                                                <button class="btn btn-sm btn-outline-danger delete-express-btn">删除</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>EX03</td>
+                                            <td>中通</td>
+                                            <td>95311</td>
+                                            <td>2023-09-10</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary edit-express-btn">编辑</button>
+                                                <button class="btn btn-sm btn-outline-danger delete-express-btn">删除</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>EX04</td>
+                                            <td>圆通</td>
+                                            <td>95554</td>
+                                            <td>2023-10-05</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary edit-express-btn">编辑</button>
+                                                <button class="btn btn-sm btn-outline-danger delete-express-btn">删除</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>EX05</td>
+                                            <td>韵达</td>
+                                            <td>95546</td>
+                                            <td>2023-11-03</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary edit-express-btn">编辑</button>
+                                                <button class="btn btn-sm btn-outline-danger delete-express-btn">删除</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- 数据备份还原 -->
+                        <div class="tab-pane fade" id="data-backup" role="tabpanel" aria-labelledby="data-backup-tab">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-header">数据备份</div>
+                                        <div class="card-body">
+                                            <p class="card-text">将系统中的所有数据导出为备份文件，以便后续恢复使用。</p>
+                                            <div class="mb-3">
+                                                <label class="form-label">备份范围</label>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="backupBatteries" checked>
+                                                    <label class="form-check-label" for="backupBatteries">
+                                                        电池维修记录
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="backupSettings" checked>
+                                                    <label class="form-check-label" for="backupSettings">
+                                                        系统配置数据
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="backupImages" checked>
+                                                    <label class="form-check-label" for="backupImages">
+                                                        电池图片数据
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-primary" id="backupBtn">
+                                                <i class="bi bi-download"></i> 立即备份
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-header">数据还原</div>
+                                        <div class="card-body">
+                                            <p class="card-text">从备份文件中恢复数据，将覆盖当前系统中的数据。</p>
+                                            <div class="mb-3">
+                                                <label for="restoreFile" class="form-label">选择备份文件</label>
+                                                <input class="form-control" type="file" id="restoreFile" accept=".json">
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="confirmRestore">
+                                                    <label class="form-check-label" for="confirmRestore">
+                                                        我已了解还原数据会覆盖现有数据，并已做好准备
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-danger" id="restoreBtn" disabled>
+                                                <i class="bi bi-upload"></i> 立即还原
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 添加/编辑电池型号模态框 -->
+    <div class="modal fade" id="batteryModelModal" tabindex="-1" aria-labelledby="batteryModelModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="batteryModelModalLabel">添加电池型号</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="batteryModelForm">
+                        <div class="mb-3">
+                            <label for="modelCode" class="form-label">型号代码</label>
+                            <input type="text" class="form-control" id="modelCode" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modelName" class="form-label">型号名称</label>
+                            <input type="text" class="form-control" id="modelName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modelDescription" class="form-label">描述</label>
+                            <textarea class="form-control" id="modelDescription" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="saveBatteryModelBtn">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 添加/编辑维修项目模态框 -->
+    <div class="modal fade" id="repairItemModal" tabindex="-1" aria-labelledby="repairItemModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="repairItemModalLabel">添加维修项目</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="repairItemForm">
+                        <div class="mb-3">
+                            <label for="repairItemCode" class="form-label">项目代码</label>
+                            <input type="text" class="form-control" id="repairItemCode" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="repairItemName" class="form-label">项目名称</label>
+                            <input type="text" class="form-control" id="repairItemName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="repairItemDescription" class="form-label">描述</label>
+                            <textarea class="form-control" id="repairItemDescription" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="saveRepairItemBtn">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="api.js"></script>
+    <script src="settings.js"></script>
+</body>
+</html> 

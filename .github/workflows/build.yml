@@ -1,0 +1,74 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Install Node.js dependencies
+      run: npm install
+      
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pyinstaller
+        
+    - name: Build portable version
+      run: python build_portable.py
+      
+    - name: Build standard version
+      run: python build_exe.py
+      
+    - name: Create release archives
+      run: |
+        Compress-Archive -Path "dist\电池售后管理系统" -DestinationPath "电池售后管理系统_v${{ github.ref_name }}.zip"
+        Compress-Archive -Path "dist\电池售后管理系统_便携版" -DestinationPath "电池售后管理系统_便携版_v${{ github.ref_name }}.zip"
+        
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: battery-management-system-windows
+        path: |
+          电池售后管理系统_v*.zip
+          电池售后管理系统_便携版_v*.zip
+
+  release:
+    needs: build-windows
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+    
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: battery-management-system-windows
+        
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          电池售后管理系统_v*.zip
+          电池售后管理系统_便携版_v*.zip
+        draft: false
+        prerelease: false
+        generate_release_notes: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
